@@ -49,6 +49,17 @@
     window.location='https://github.com/AR-js-org/AR.js';
   }
 
+AFRAME.registerComponent('changeview', {
+
+  init: function() {
+  window.location = 'https://github.com/AR-js-org/AR.js';
+  },
+
+});
+
+
+
+
   AFRAME.registerComponent('markerhandler', {
   
     init: function() {
@@ -66,7 +77,7 @@
 
   tick: function(t, dt) {
 
-if (document.querySelector("#nftBird").visible == true) {
+if (document.querySelector("#nftBird").visible == false) {
   // MARKER IS PRESENT
   alert("MARKER IS PRESENT")
 
@@ -114,6 +125,7 @@ if (document.querySelector("#nftBird").visible == true) {
             smoothCount="10"
             smoothTolerance=".01"
             smoothThreshold="5"
+            onNftLoad
 	       >
 
          <a-box id="nftBird" visible="false" color="tomato" depth="2" height="400" width="200" normal-scale="2000" ></a-box>
