@@ -41,14 +41,7 @@
 <body style="margin : 0px; overflow: hidden;">
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
-    <img src="images/nft/bird-image/birdbig.jpeg"/>
   </div>
-  <a-scene
-    vr-mode-ui="enabled: false;"
-    renderer="antialias: true; alpha: true; precision: mediump;"
-    embedded
-    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-  >
 
   <a-scene
         vr-mode-ui='enabled: false;'
@@ -59,9 +52,9 @@
         <a-nft
             type='nft' url='images/nft-images/bird-image/01'
             smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
-				
+				             	<a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+	
         </a-nft>
-	             	<a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
 
 		<a-entity camera></a-entity>
     </a-scene>
