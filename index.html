@@ -40,7 +40,14 @@
 	  
 <script>
   AFRAME.registerComponent('markerhandler', {
-    init: function () {
+  
+    init: function() {
+      // Set up the tick throttling. Will check if marker is active every 500ms
+      this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
+    },
+
+
+  init: function () {
       this.el.sceneEl.addEventListener('markerFound', () => {
         // redirect to custom URL
         window.location = 'https://github.com/AR-js-org/AR.js';
@@ -63,6 +70,10 @@
         <a-nft
             type='nft' 
 	          url='images/nft-images/bird-image/01'
+            smooth="true"
+            smoothCount="10"
+            smoothTolerance=".01"
+            smoothThreshold="5"
 	       >
 
          <a-box color="tomato" depth="2" height="400" width="200" normal-scale="2000"></a-box>
