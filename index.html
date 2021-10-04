@@ -41,8 +41,9 @@
 	  
 <script>
   console.log(THREE);
-  var scene
-  var nftBox1
+  var scene = document.querySelector('#a-scene');
+  var nftBird = document.querySelector('#nftBird');
+  var nftBox = document.querySelector('#box');
 
   AFRAME.registerComponent('markerhandler', {
   
@@ -61,17 +62,18 @@
 
   tick: function(t, dt) {
 
-if (document.querySelector("#nftBird").object3D.visible == true) {
+if (document.querySelector("#nftBird").visible == true) {
   // MARKER IS PRESENT
   alert("MARKER IS PRESENT")
 
-  scene = document.querySelector('#a-scene');
-  nftBox1 = document.querySelector('#Object01');
-
-  nftBox1.addEventListener('markerFound', () => {
+  nftBird.addEventListener('markerFound', () => {
         // redirect to custom URL
+        console.log("object01 clickable in AR")
         window.location = 'https://github.com/AR-js-org/AR.js';
+        
       });
+
+  
 
 
   //AR-Object01.addEventListener('click', function () { console.log("object01 clickable in AR") });
@@ -112,8 +114,7 @@ if (document.querySelector("#nftBird").object3D.visible == true) {
 	       >
 
          <a-box id="nftBird" visible="true" color="tomato" depth="2" height="400" width="200" normal-scale="2000"></a-box>
-
-         <a-entity markethandler></a-entity>
+         <a-entity markethandler id="box" geometry="primitive: box" material="color: green" scale="10 10 10"></a-entity>
 
         </a-nft>
 		<a-entity camera></a-entity>
