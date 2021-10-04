@@ -45,6 +45,10 @@
   var nftBird = document.querySelector('#nftBird');
   var nftBox = document.querySelector('#box');
 
+  function onNftLoad() {
+    window.location='https://github.com/AR-js-org/AR.js';
+  }
+
   AFRAME.registerComponent('markerhandler', {
   
     init: function() {
@@ -101,7 +105,6 @@ if (document.querySelector("#nftBird").visible == true) {
         renderer="logarithmicDepthBuffer: true;"
         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
-        <!-- use rawgithack to retrieve the correct url for nft marker (see 'pinball' below) -->
         <a-nft
             emitevents="true"
             type='nft' 
@@ -113,7 +116,7 @@ if (document.querySelector("#nftBird").visible == true) {
             smoothThreshold="5"
 	       >
 
-         <a-box id="nftBird" visible="true" color="tomato" depth="2" height="400" width="200" normal-scale="2000"></a-box>
+         <a-box id="nftBird" visible="false" color="tomato" depth="2" height="400" width="200" normal-scale="2000" ></a-box>
          <a-entity markethandler id="box" geometry="primitive: box" material="color: green" scale="10 10 10"></a-entity>
 
         </a-nft>
