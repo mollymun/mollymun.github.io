@@ -39,6 +39,8 @@
 </style>
 	  
 <script>
+  var scene
+
   AFRAME.registerComponent('markerhandler', {
   
     init: function() {
@@ -53,7 +55,27 @@
         window.location = 'https://github.com/AR-js-org/AR.js';
       });
   },
-  });
+
+  tick: function(t, dt) {
+
+if (document.querySelector("#nftBird").object3D.visible == true) {
+  // MARKER IS PRESENT
+  alert("MARKER IS PRESENT")
+
+  scene = document.querySelector('#a-scene');
+
+  AR-Object01.addEventListener('click', function () { console.log("object01 clickable in AR") });
+  AR-Object02.addEventListener('click', function () { console.log("object02 clickable in AR") });
+  videoScreen.addEventListener('click', function () { playPauseVideo(); console.log("Video Play Toggle") });
+  playing = true;
+
+} else {
+  // MARKER IS HIDDEN, do nothing (up to you)
+};
+
+  },
+});
+
 </script>
 
 <body style="margin : 0px; overflow: hidden;">
@@ -62,12 +84,14 @@
   </div>
 
   <a-scene
+        id="a-scene"
         vr-mode-ui='enabled: false;'
         renderer="logarithmicDepthBuffer: true;"
         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
         <!-- use rawgithack to retrieve the correct url for nft marker (see 'pinball' below) -->
         <a-nft
+            id="nftBird"
             type='nft' 
             markethandler
 	          url='images/nft-images/bird-image/01'
